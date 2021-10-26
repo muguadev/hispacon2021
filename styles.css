@@ -174,7 +174,7 @@ div.container::after {
   height: 100%;
   width: 75.6vh;
   opacity: 1;
-  background: transparent url(/images/cartel.png) no-repeat center / contain;
+  background: transparent url(images/cartel.png) no-repeat center / contain;
   animation: container-in var(--container-in-duration) ease-in var(--container-in-delay) 1 normal forwards;
   transition: background-image 1s ease-in, background-position 1s ease-in, width 1s ease-in;
 }
@@ -182,7 +182,7 @@ div.container::after {
 div.container.with-selection::after {
   background-position: top right;
   width: calc(75.6vh / 2);
-  background-image: url(/images/logo_hispacon.png);
+  background-image: url(images/logo_hispacon.png);
 }
 
 /**
@@ -452,7 +452,7 @@ div.content table.schedule td.event span.time {
 
 div.content table.schedule td.event.official {
   background-color: #0086BF;
-  background-image: url(/images/schedule/official.png);
+  background-image: url(images/schedule/official.png);
 }
 
 div.content table.schedule td.event.venue {
@@ -460,17 +460,17 @@ div.content table.schedule td.event.venue {
   background-color: whitesmoke;
 }
 
-div.content table.schedule td.event.venue.l80mundos { background-image: url(/images/schedule/venues/80mundos.png); }
-div.content table.schedule td.event.venue.akira { background-image: url(/images/schedule/venues/akira.png); }
-div.content table.schedule td.event.venue.pantera { background-image: url(/images/schedule/venues/pantera.png); }
-div.content table.schedule td.event.venue.domus { background-image: url(/images/schedule/venues/domus.png); }
-div.content table.schedule td.event.venue.insolita { background-image: url(/images/schedule/venues/insolita.png); }
-div.content table.schedule td.event.venue.gigamesh { background-image: url(/images/schedule/venues/gigamesh.png); }
+div.content table.schedule td.event.venue.l80mundos { background-image: url(images/schedule/venues/80mundos.png); }
+div.content table.schedule td.event.venue.akira { background-image: url(images/schedule/venues/akira.png); }
+div.content table.schedule td.event.venue.pantera { background-image: url(images/schedule/venues/pantera.png); }
+div.content table.schedule td.event.venue.domus { background-image: url(images/schedule/venues/domus.png); }
+div.content table.schedule td.event.venue.insolita { background-image: url(images/schedule/venues/insolita.png); }
+div.content table.schedule td.event.venue.gigamesh { background-image: url(images/schedule/venues/gigamesh.png); }
 
-div.content table.schedule td.event.debate { background-image: url(/images/schedule/debate.svg); }
-div.content table.schedule td.event.interview { background-image: url(/images/schedule/meeting.svg); }
-div.content table.schedule td.event.speech { background-image: url(/images/schedule/conference.svg); }
-div.content table.schedule td.event.new { background-image: url(/images/schedule/new.svg); }
+div.content table.schedule td.event.debate { background-image: url(images/schedule/debate.svg); }
+div.content table.schedule td.event.interview { background-image: url(images/schedule/meeting.svg); }
+div.content table.schedule td.event.speech { background-image: url(images/schedule/conference.svg); }
+div.content table.schedule td.event.new { background-image: url(images/schedule/new.svg); }
 
 div.content table.schedule td.event span.roster {
   position: absolute;
@@ -503,7 +503,7 @@ div.container div#speakers_search {
 
 div.container div#speakers_search input#search_box {
   font-size: 1.2rem;
-  background: white url(/images/speakers/search.png) no-repeat right 0.2rem center / 1rem;
+  background: white url(images/speakers/search.png) no-repeat right 0.2rem center / 1rem;
   border: 1px solid var(--border-color);
   border-radius: 0.25rem;
   padding: 0.25rem 1.5rem 0.25rem 0.25rem;
@@ -650,35 +650,35 @@ div.container div#speakers_list div.block div.speaker div.social div.platform {
 }
 
 div.container div#speakers_list div.block div.speaker div.social div.platform.twitter {
-  background-image: url(/images/speakers/social/twitter.png);
+  background-image: url(images/speakers/social/twitter.png);
 }
 
 div.container div#speakers_list div.block div.speaker div.social div.platform.wordpress {
-  background-image: url(/images/speakers/social/wordpress.png); 
+  background-image: url(images/speakers/social/wordpress.png); 
 }
 
 div.container div#speakers_list div.block div.speaker div.social div.platform.facebook {
-  background-image: url(/images/speakers/social/facebook.png); 
+  background-image: url(images/speakers/social/facebook.png); 
 }
 
 div.container div#speakers_list div.block div.speaker div.social div.platform.instagram {
-  background-image: url(/images/speakers/social/instagram.png); 
+  background-image: url(images/speakers/social/instagram.png); 
 }
 
 div.container div#speakers_list div.block div.speaker div.social div.platform.twitch {
-  background-image: url(/images/speakers/social/twitch.png); 
+  background-image: url(images/speakers/social/twitch.png); 
 }
 
 div.container div#speakers_list div.block div.speaker div.social div.platform.tiktok {
-  background-image: url(/images/speakers/social/tiktok.png); 
+  background-image: url(images/speakers/social/tiktok.png); 
 }
 
 div.container div#speakers_list div.block div.speaker div.social div.platform.www {
-  background-image: url(/images/speakers/social/www.png); 
+  background-image: url(images/speakers/social/www.png); 
 }
 
 div.container div#speakers_list div.block div.speaker div.social div.platform.pinterest {
-  background-image: url(/images/speakers/social/pinterest.png); 
+  background-image: url(images/speakers/social/pinterest.png); 
 }
 
 div.container div#speakers_list div.block div.speaker div.events {
@@ -724,23 +724,23 @@ div.container div#speakers_list div.block div.speaker div.events table td.icon {
 }
 
 div.container div#speakers_list div.block div.speaker div.events td.icon.official {
-  background-image: url(/images/schedule/official.png);
+  background-image: url(images/schedule/official.png);
 }
 
 div.container div#speakers_list div.block div.speaker div.events td.icon.debate {
-  background-image: url(/images/schedule/debate.svg);
+  background-image: url(images/schedule/debate.svg);
 }
 
 div.container div#speakers_list div.block div.speaker div.events td.icon.interview {
-  background-image: url(/images/schedule/meeting.svg);
+  background-image: url(images/schedule/meeting.svg);
 }
 
 div.container div#speakers_list div.block div.speaker div.events td.icon.speech {
-  background-image: url(/images/schedule/conference.svg);
+  background-image: url(images/schedule/conference.svg);
 }
 
 div.container div#speakers_list div.block div.speaker div.events td.icon.new {
-  background-image: url(/images/schedule/new.svg);
+  background-image: url(images/schedule/new.svg);
 }
 
 div.container div#speakers_list div.block div.speaker div.events td.event_link {
@@ -756,7 +756,7 @@ div.container div#rpg-content {
 
 div.container div#rpg-footer {
   height: 10%;
-  background: url(/images/logo_jornadas.png) no-repeat left 1rem center/contain;
+  background: url(images/logo_jornadas.png) no-repeat left 1rem center/contain;
   padding-left: 10%;
   display: flex;
   justify-content: space-between;
@@ -961,17 +961,17 @@ div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.
   border-radius: 50%;
 }
 
-div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.ga { background-image: url(/images/jornadas/lang/gallego.png); }
-div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.ct { background-image: url(/images/jornadas/lang/catalan.png); }
-div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.pv { background-image: url(/images/jornadas/lang/euskera.png); }
-div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.vc { background-image: url(/images/jornadas/lang/valenciano.png); }
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.ga { background-image: url(images/jornadas/lang/gallego.png); }
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.ct { background-image: url(images/jornadas/lang/catalan.png); }
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.pv { background-image: url(images/jornadas/lang/euskera.png); }
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.vc { background-image: url(images/jornadas/lang/valenciano.png); }
 
 div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.adult {
   width: 1.5rem;
   height: 1.5rem;
   border: 2px solid white;
   border-radius: 50%;
-  background: url(/images/jornadas/age-limit-white.png) no-repeat center/contain;
+  background: url(images/jornadas/age-limit-white.png) no-repeat center/contain;
 }
 
 div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.rookies {
@@ -1032,25 +1032,25 @@ div.game-card div.game-info div.game-info-contents .field {
 }
 
 div.game-card div.game-info div.game-info-contents .field.date {
-  background-image: url(/images/jornadas/calendar.png);
+  background-image: url(images/jornadas/calendar.png);
   font-weight: bold;
 }
 
 div.game-card div.game-info div.game-info-contents .field.master {
-  background-image: url(/images/jornadas/master.png);
+  background-image: url(images/jornadas/master.png);
   font-weight: bold;
 }
 
 div.game-card div.game-info div.game-info-contents .field.franchise {
-  background-image: url(/images/jornadas/game.png);
+  background-image: url(images/jornadas/game.png);
 }
 
 div.game-card div.game-info div.game-info-contents .field.players {
-  background-image: url(/images/jornadas/players.png);
+  background-image: url(images/jornadas/players.png);
 }
 
 div.game-card div.game-info div.game-info-contents .field.webcam {
-  background-image: url(/images/jornadas/webcam.png);
+  background-image: url(images/jornadas/webcam.png);
 }
 
 div.game-card div.game-info div.game-info-contents div.additional {
@@ -1065,7 +1065,7 @@ div.game-card div.game-info div.game-info-contents div.additional {
 
 div.game-card div.game-info div.game-info-contents div.adult {
   height: 2rem;
-  background: url(/images/jornadas/age-limit.png) no-repeat center/contain;
+  background: url(images/jornadas/age-limit.png) no-repeat center/contain;
 }
 
 div.game-card div.game-info div.game-info-contents div.rookies {
@@ -1095,18 +1095,18 @@ div.game-card div.game-info div.game-info-contents div.language {
   border-radius: 50%;
 }
 
-div.game-card div.game-info div.game-info-contents div.language.ga { background-image: url(/images/jornadas/lang/gallego.png); }
-div.game-card div.game-info div.game-info-contents div.language.ct { background-image: url(/images/jornadas/lang/catalan.png); }
-div.game-card div.game-info div.game-info-contents div.language.pv { background-image: url(/images/jornadas/lang/euskera.png); }
-div.game-card div.game-info div.game-info-contents div.language.vc { background-image: url(/images/jornadas/lang/valenciano.png); }
+div.game-card div.game-info div.game-info-contents div.language.ga { background-image: url(images/jornadas/lang/gallego.png); }
+div.game-card div.game-info div.game-info-contents div.language.ct { background-image: url(images/jornadas/lang/catalan.png); }
+div.game-card div.game-info div.game-info-contents div.language.pv { background-image: url(images/jornadas/lang/euskera.png); }
+div.game-card div.game-info div.game-info-contents div.language.vc { background-image: url(images/jornadas/lang/valenciano.png); }
 
 
 div.game-card div.game-info div.game-info-contents .field.bots {
-  background-image: url(/images/jornadas/bots.png);
+  background-image: url(images/jornadas/bots.png);
 }
 
 div.game-card div.game-info div.game-info-contents .field.tools {
-  background-image: url(/images/jornadas/tools.png);
+  background-image: url(images/jornadas/tools.png);
 }
 
 div.game-card div.game-text {
@@ -1144,7 +1144,7 @@ div.game-card div.game-text a {
 
 div.game-card div.game-text a::after {
   content: "";
-  background-image: url(/images/link.png);
+  background-image: url(images/link.png);
   background-size: cover;
   height: 1em;
   width: 1em;
