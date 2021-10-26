@@ -1,0 +1,1235 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+:root {
+  --body-background: #e8e9db;
+  --text-color: #df4022;
+  --border-color: #151d1d;
+  --scrollbar-width: 11px;
+
+  --menu-option-border-width: 3px;
+  --menu-option-shadow-width: 6px;
+
+  --animation-delay: 1s;
+
+  --logo-color-change-delay: var(--animation-delay);
+  --logo-color-change-duration: 3s;
+
+  --cruiser-flight-delay: var(--logo-color-change-delay);
+  --cruiser-flight-duration: var(--logo-color-change-duration);
+
+  --super-transport-up-duration: 1s;
+  --super-transport-up-delay: calc(var(--logo-color-change-delay) + var(--logo-color-change-duration) + (2 * var(--animation-delay)));
+
+  --super-transport-out-duration: 0.5s;
+  --super-transport-out-delay: calc(var(--super-transport-up-delay) + var(--super-transport-up-duration) + var(--animation-delay));
+
+  --logo-out-duration: 0.25s;
+  --logo-out-delay: var(--super-transport-out-delay);
+
+  --container-in-duration: var(--super-transport-out-duration);
+  --container-in-delay: var(--super-transport-out-delay);
+
+  --content-height: 84vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--body-background) var(--border-color);
+}
+
+*::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--body-background);
+  border-radius: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border-color) ;
+  border-radius: 6px;
+  border: 2px solid var(--body-background);
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body, html, div.intro, div.container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+div.intro, div.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/**
+  Cambio de color del fondo y del logo de Pórtico, y desplazamiento del logo de Pórtico a la esquina superior izquierda
+**/
+@keyframes logo-portico {
+  0%    { background: black url(images/logo_blanco.png) no-repeat center/30%; }
+  97%   { background: black url(images/logo_blanco.png) no-repeat center/30%; }
+  98%   { background: var(--body-background) url(images/logo_color.png) no-repeat center/30%; }
+  100%  { background: var(--body-background) url(images/logo_color.png) no-repeat center/30%; }
+}
+
+@keyframes logo-out {
+  from  {background-position: center; background-size: 30%; }
+  to    { background-position: top left; background-size: 15%; }
+}
+
+div.intro {
+  background: black url(images/logo_blanco.png) no-repeat center/30%;
+  animation:
+    logo-portico var(--logo-color-change-duration) linear var(--logo-color-change-delay) 1 normal forwards,
+    logo-out var(--logo-out-duration) ease-in var(--logo-out-delay) 1 normal forwards; 
+  transition: background 1s ease-in;
+}
+
+/**
+  Animación del C-57D hasta que sale por el "portal"
+**/
+@keyframes cruiser-flight {
+  0%    { width: 30vmin; height: 30vmin; bottom: -30vmin; left: -30vmin; transform: rotate(45deg); }
+  25%   { bottom: 2vmin; left: 2vmin; transform: rotate(0deg); }
+  35%   { bottom: 2vmin; left: 2vmin; transform: rotate(0deg); }
+  40%   { transform: rotate(30deg); }
+  45%   { bottom: 80%; left: 20%; transform: rotate(0deg); }
+  55%   { bottom: 80%; left: 20%; transform: rotate(0deg); }
+  60%   { transform: rotate(20deg); }
+  65%   { bottom: 40%; left: 70%; transform: rotate(0deg); }
+  75%   { bottom: 40%; left: 70%; transform: rotate(0deg); }
+  82.5% { transform: rotate(-45deg); }
+  90%   { bottom: 50%; left: 50%; transform: rotate(0deg); }
+  95%   { bottom: 50%; left: 50%; }
+  96%   { bottom: 50%; left: 60%; }
+  97%   { bottom: 50%; left: 70%; }
+  98%   { bottom: 50%; left: 80%; }
+  99%   { bottom: 50%; left: 90%; }
+  100%  { width: 5vmin; height: 5vmin; bottom: 50%; right: 0; visibility: hidden; }
+}
+
+div.ufo {
+  position: absolute;
+  background: url(images/C-57D.png) no-repeat center/contain;
+  animation: cruiser-flight var(--cruiser-flight-duration) ease-in-out var(--cruiser-flight-delay) 1 normal forwards;
+}
+
+/**
+  Animación del ST-33L hasta que sale por la esquina superior izquierda
+**/
+@keyframes super-transport-up {
+  from  { top: 100%; }
+  to    { top: 20%; }
+}
+
+@keyframes super-transport-out {
+  from  { top: 20%; left: 50%; }
+  to    { top: -50%; left: -50%; }
+}
+
+div.mothership {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 40%;
+  aspect-ratio: 5.015 / 1;
+  transform: translateX(-50%);
+  background: url(images/ST-33L.png) no-repeat center/contain;
+  animation:
+    super-transport-up var(--super-transport-up-duration) linear var(--super-transport-up-delay) 1 normal forwards,
+    super-transport-out var(--super-transport-out-duration) ease-in var(--super-transport-out-delay) 1 normal forwards;
+}
+
+/**
+  Animación del contenedor
+**/
+
+@keyframes container-in {
+  from  { right: -75.6vh; }
+  to    { right: 0; }
+}
+
+div.container {
+  position: relative;
+}
+
+div.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  right: -75.6vh;
+  height: 100%;
+  width: 75.6vh;
+  opacity: 1;
+  background: transparent url(/images/cartel.png) no-repeat center / contain;
+  animation: container-in var(--container-in-duration) ease-in var(--container-in-delay) 1 normal forwards;
+  transition: background-image 1s ease-in, background-position 1s ease-in, width 1s ease-in;
+}
+
+div.container.with-selection::after {
+  background-position: top right;
+  width: calc(75.6vh / 2);
+  background-image: url(/images/logo_hispacon.png);
+}
+
+/**
+  Sponsors
+**/
+
+@keyframes sponsors-in {
+  from { bottom: -21%; }
+  to   { bottom: 0; }
+}
+
+div.sponsors {
+  position: absolute;
+  bottom: -21%;
+  left: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20%;
+  border: 2px solid var(--text-color);
+  margin: 0.5rem;
+  border-radius: 1rem;
+  animation: sponsors-in var(--container-in-duration) ease-in var(--container-in-delay) 1 normal forwards;
+  transition: left 1s ease-in;
+}
+
+div.sponsors div.logos {
+  height: 15vh;
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
+div.sponsors div.logos img {
+  max-height: 80%;
+}
+
+div.sponsors div.logos div.overlapped {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 80%;
+}
+
+div.sponsors div.logos div.overlapped img {
+  max-height: 40%;
+}
+
+/**
+  Animaciones de las opciones de menú
+**/
+
+button.option {
+  position: absolute;
+  display: flex;
+  background-color: transparent;
+  top: 100%;
+  left: 5rem;
+  height: 10%;
+  width: 50%;
+  animation-duration: var(--container-in-duration);
+  animation-delay: var(--container-in-delay);
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  font-family: 'Open Sans';
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 3rem;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  border-top: var(--menu-option-border-width) solid var(--border-color);
+  transition: left 1s ease-in;
+}
+
+div.sponsors.hidden,
+button.option.hidden {
+  left: -50%;
+}
+
+button.option:last-of-type {
+  border-bottom: var(--menu-option-border-width) solid var(--border-color);
+}
+
+button.option:last-of-type:hover {
+  border-bottom: none;
+}
+
+button.option:hover {
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  box-shadow: var(--menu-option-shadow-width) var(--menu-option-shadow-width) var(--menu-option-shadow-width) var(--text-color);
+}
+
+button.option:hover + button.option {
+  border-top: none;
+}
+
+@keyframes schedule-in { from { top: 100%; } to { top: 30%; } }
+button#schedule.option { animation-name: schedule-in; transition-delay: 0.6s; }
+
+@keyframes speakers-in { from { top: 100% } to { top: 40%; } }
+button#speakers.option { animation-name: speakers-in; transition-delay: 0.4s;}
+
+@keyframes bookfair-in { from { top: 100% } to { top: 50%; } }
+button#bookfair.option { animation-name: bookfair-in; transition-delay: 0.2s; }
+
+@keyframes roleplaying-in { from { top: 100% } to { top: 60%; } }
+button#roleplaying.option { animation-name: roleplaying-in; }
+
+/**
+  Modal
+**/
+
+div.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background:rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+div.backdrop.visible {
+  display: initial;
+}
+
+div.backdrop div.modal-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background-color: var(--body-background);
+  border-radius: 30px 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+div.backdrop div.modal-header {
+  height: auto;
+  flex-shrink: 0;
+}
+
+div.backdrop div.modal-body {
+  height: 100%;
+  column-gap: 1rem;
+  position: relative;
+}
+
+div.backdrop div.modal-header,
+div.backdrop div.modal-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.backdrop div.modal-close {
+  height: 1.5rem;
+  width: 1.5rem;
+  background: url(images/close.png) no-repeat center/contain;
+  cursor: pointer;
+}
+
+div.backdrop img.author-picture {
+  width: 30%;
+}
+
+div.backdrop div.author-bio p {
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+}
+
+/**
+  Panel de contenido
+**/
+
+div.content {
+  height: var(--content-height);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: calc(-1 * var(--content-height));
+  background-color: var(--body-background);
+  transition: bottom 1s ease-in-out 0.6s;
+}
+
+div.content.visible {
+  bottom: 0;
+  position: fixed;
+  z-index: 1000;
+}
+
+/**
+  Botón de "home"
+**/
+
+button.home {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: var(--text-color);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
+}
+
+/**
+  Programación
+**/
+
+div.content table.schedule {
+  color: var(--border-color);
+  width: 100%;
+  padding: 1rem 1rem 0 1rem;
+}
+
+div.content table.schedule thead {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+div.content table.schedule td.event {
+  border: 2px solid var(--border-color);
+  color: white;
+  background-color: var(--text-color);
+  border-radius: 30px 10px;
+  vertical-align: top;
+  padding: 0.25rem 0.25rem 0.25rem 5rem;
+  background-position: top 0.5rem left 2%;
+  background-size: 3rem;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 29%;
+  max-width: 29%;
+}
+
+div.content table.schedule td.event h2 {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+div.content table.schedule td.event span.time {
+  position: absolute;
+  left: 0.25rem;
+  bottom: 0.25rem;
+  width: 4em;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+div.content table.schedule td.event.official {
+  background-color: #0086BF;
+  background-image: url(/images/schedule/official.png);
+}
+
+div.content table.schedule td.event.venue {
+  color: var(--border-color);
+  background-color: whitesmoke;
+}
+
+div.content table.schedule td.event.venue.l80mundos { background-image: url(/images/schedule/venues/80mundos.png); }
+div.content table.schedule td.event.venue.akira { background-image: url(/images/schedule/venues/akira.png); }
+div.content table.schedule td.event.venue.pantera { background-image: url(/images/schedule/venues/pantera.png); }
+div.content table.schedule td.event.venue.domus { background-image: url(/images/schedule/venues/domus.png); }
+div.content table.schedule td.event.venue.insolita { background-image: url(/images/schedule/venues/insolita.png); }
+div.content table.schedule td.event.venue.gigamesh { background-image: url(/images/schedule/venues/gigamesh.png); }
+
+div.content table.schedule td.event.debate { background-image: url(/images/schedule/debate.svg); }
+div.content table.schedule td.event.interview { background-image: url(/images/schedule/meeting.svg); }
+div.content table.schedule td.event.speech { background-image: url(/images/schedule/conference.svg); }
+div.content table.schedule td.event.new { background-image: url(/images/schedule/new.svg); }
+
+div.content table.schedule td.event span.roster {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+}
+
+div.content table.schedule td.event span.roster img.thumbnail {
+  cursor: pointer;
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+}
+
+/**
+  Ponentes
+**/
+
+div.container div#speakers_search {
+  flex-shrink: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1rem;
+}
+
+div.container div#speakers_search input#search_box {
+  font-size: 1.2rem;
+  background: white url(/images/speakers/search.png) no-repeat right 0.2rem center / 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  padding: 0.25rem 1.5rem 0.25rem 0.25rem;
+}
+
+div.container div#speakers_search span#buttons {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+div.container div#speakers_search span#buttons button.button {
+  background-color: var(--border-color);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2rem;
+  font-family: 'Open Sans';
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+div.container div#speakers_search span#buttons button.button:disabled {
+  cursor: auto;
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+div.container div#speakers_list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  row-gap: 0.5rem;
+  overflow-y: auto;
+  padding: 0.5rem 1rem;
+  scroll-behavior: smooth;
+}
+
+div.container div#speakers_list div.block {
+  width: 100%;
+  border: 2px solid var(--border-color);
+  border-radius: 30px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 2rem;
+  padding: 2rem;
+  position: relative;
+}
+
+div.container div#speakers_list div.block > h1 {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: var(--text-color);
+}
+
+div.container div#speakers_list .hidden {
+  display: none !important;
+}
+
+div.container div#speakers_list div.block div.speaker {
+  width: 30rem;
+  aspect-ratio: 1;
+  border-radius: 30px 10px;
+  background-color: var(--text-color);
+  color: var(--body-background);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  display: grid;
+  grid-template-rows: 1fr 4fr 5fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'name name'
+    'image social'
+    'events events';
+  position: relative;
+}
+
+div.container div#speakers_list div.block div.speaker > .more {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 50%;
+  border: 1px solid var(--body-background);
+  background: var(--body-background) url(images/speakers/info.png) no-repeat center/contain;
+  cursor: pointer;
+}
+
+div.container div#speakers_list div.block div.speaker > h2 {
+  grid-area: name;
+  text-align: right;
+}
+
+div.container div#speakers_list div.block div.speaker .bright {
+  color: white;
+  font-size: 120%;
+}
+
+div.container div#speakers_list div.block div.speaker .nick {
+  font-style: italic;
+}
+
+div.container div#speakers_list div.block div.speaker .nick::before {
+  content: "\000AB";
+}
+
+div.container div#speakers_list div.block div.speaker .nick::after {
+  content: "\000BB";
+}
+
+div.container div#speakers_list div.block div.speaker img.picture {
+  grid-area: image;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2rem 1rem;
+  padding: 0.5rem;
+}
+
+div.container div#speakers_list div.block div.speaker div.social {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+div.container div#speakers_list div.block div.speaker div.social div.platform {
+  height: 3rem;
+  width: 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+div.container div#speakers_list div.block div.speaker div.social div.platform.twitter {
+  background-image: url(/images/speakers/social/twitter.png);
+}
+
+div.container div#speakers_list div.block div.speaker div.social div.platform.wordpress {
+  background-image: url(/images/speakers/social/wordpress.png); 
+}
+
+div.container div#speakers_list div.block div.speaker div.social div.platform.facebook {
+  background-image: url(/images/speakers/social/facebook.png); 
+}
+
+div.container div#speakers_list div.block div.speaker div.social div.platform.instagram {
+  background-image: url(/images/speakers/social/instagram.png); 
+}
+
+div.container div#speakers_list div.block div.speaker div.social div.platform.twitch {
+  background-image: url(/images/speakers/social/twitch.png); 
+}
+
+div.container div#speakers_list div.block div.speaker div.social div.platform.tiktok {
+  background-image: url(/images/speakers/social/tiktok.png); 
+}
+
+div.container div#speakers_list div.block div.speaker div.social div.platform.www {
+  background-image: url(/images/speakers/social/www.png); 
+}
+
+div.container div#speakers_list div.block div.speaker div.social div.platform.pinterest {
+  background-image: url(/images/speakers/social/pinterest.png); 
+}
+
+div.container div#speakers_list div.block div.speaker div.events {
+  grid-area: events;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+div.container div#speakers_list div.block div.speaker div.events strong {
+  font-size: 1.2rem;
+}
+
+div.container div#speakers_list div.block div.speaker div.events table {
+  color: white;
+  border-collapse: collapse;
+}
+
+div.container div#speakers_list div.block div.speaker div.events table tr {
+  cursor: pointer;
+}
+
+div.container div#speakers_list div.block div.speaker div.events table tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+} 
+
+div.container div#speakers_list div.block div.speaker div.events table td.small {
+  font-size: 0.7rem;
+  text-align: right;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+div.container div#speakers_list div.block div.speaker div.events table td {
+  padding: 0.25rem;
+}
+
+div.container div#speakers_list div.block div.speaker div.events table td.icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.2rem;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+div.container div#speakers_list div.block div.speaker div.events td.icon.official {
+  background-image: url(/images/schedule/official.png);
+}
+
+div.container div#speakers_list div.block div.speaker div.events td.icon.debate {
+  background-image: url(/images/schedule/debate.svg);
+}
+
+div.container div#speakers_list div.block div.speaker div.events td.icon.interview {
+  background-image: url(/images/schedule/meeting.svg);
+}
+
+div.container div#speakers_list div.block div.speaker div.events td.icon.speech {
+  background-image: url(/images/schedule/conference.svg);
+}
+
+div.container div#speakers_list div.block div.speaker div.events td.icon.new {
+  background-image: url(/images/schedule/new.svg);
+}
+
+div.container div#speakers_list div.block div.speaker div.events td.event_link {
+  font-size: 1rem;
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+div.container div#rpg-content {
+  height: 90%;
+  display: flex;
+}
+
+div.container div#rpg-footer {
+  height: 10%;
+  background: url(/images/logo_jornadas.png) no-repeat left 1rem center/contain;
+  padding-left: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.container div#rpg-footer div.rpg-footer-panel {
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 0.5rem;
+  border: 2px solid var(--text-color);
+  border-radius: 1rem;
+  height: 100%;
+}
+
+div.container div#rpg-footer div.rpg-footer-panel::before {
+  background-color: var(--body-background);
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  transform: translateY(-50%);
+  padding: 0 0.5rem;
+  font-weight: bold;
+}
+
+div.container div#rpg-footer div.rpg-footer-panel:first-of-type::before { content: 'Patrocinan'; }
+div.container div#rpg-footer div.rpg-footer-panel:last-of-type::before { content: 'Colabora'; }
+
+div.container div#rpg-footer div.rpg-footer-panel > div {
+  height: 90%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+div.container div#rpg-footer div.rpg-footer-panel > a {
+  height: 95%;
+  width: auto;
+}
+
+div.container div#rpg-footer div.rpg-footer-panel > a > img {
+  height: 100%;
+}
+
+/*@keyframes footer {
+  0%    { height: 100%; opacity: 1; }
+  20%   { height: 100%; opacity: 1; }
+  22%   { height: 0; opacity: 0; }
+  100%  { height: 0; opacity: 0; } 
+}
+
+div.container div#rpg-footer div.rpg-footer-panel {
+  height: 100%;
+  width: 100%;
+  animation-name: footer;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+div.container div#rpg-footer div.rpg-footer-panel[data-index="0"] { animation-delay: 0s; }
+div.container div#rpg-footer div.rpg-footer-panel[data-index="1"] { animation-delay: 10s; }
+div.container div#rpg-footer div.rpg-footer-panel[data-index="2"] { animation-delay: 20s; }
+div.container div#rpg-footer div.rpg-footer-panel[data-index="3"] { animation-delay: 30s; }
+div.container div#rpg-footer div.rpg-footer-panel[data-index="4"] { animation-delay: 40s; }
+
+div.rpg-sponsor {
+  height: 90%;
+  width: 20%;
+  display: flex;
+  column-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--text-color);
+  border-radius: 1rem;
+  padding: 0 1rem;
+}
+
+div.rpg-sponsor > div {
+  height: 95%;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
+
+div.container div#rpg-content div.rpg-about,
+div.container div#rpg-content div.rpg-games {
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+div.container div#rpg-content div.rpg-about {
+  width: 40%;
+}
+
+div.container div#rpg-content div.rpg-games {
+  width: 60%;
+}
+
+div.container div#rpg-content div.rpg-about div.rpg-about-text {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+div.container div#rpg-content h1 {
+  text-align: right;
+  flex-shrink: 0;
+  padding: 0 1rem;
+}
+
+div.container div#rpg-content ul {
+  padding-left: 1rem;
+  list-style: square inside;
+}
+
+div.container div#rpg-content li[role="link"] {
+  color: rgb(0, 0, 238);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+div.container div#rpg-content div.rpg-about h3 {
+  padding-top: 1rem;
+}
+
+div.container div#rpg-content div.rpg-about h3 img {
+  width: 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+div.container div#rpg-content div.rpg-about p:not(.bullet) {
+  padding-bottom: 0.25rem;
+}
+
+div.container div#rpg-content div.rpg-about p.bullet {
+  margin-left: 2rem;
+  text-indent: -0.8rem;
+}
+
+div.container div#rpg-content div.rpg-about p.bullet::before {
+  content: "\025FC";
+  position: relative;
+  left: -0.8rem;
+}
+
+div.container div#rpg-content div.rpg-games col.rpg-col {
+  width: calc(100% / 3);
+}
+
+div.container div#rpg-content div.rpg-games tbody#games-list {
+  vertical-align: text-top;
+}
+
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry {
+  position: relative;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: var(--text-color);
+  color: white;
+  border-radius: 20px 10px;
+}
+
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry > .more {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--body-background);
+  background: black url(images/jornadas/info.png) no-repeat center/contain;
+  cursor: pointer;
+}
+
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.additional {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 2.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  display: flex;
+  column-gap: 0.25rem;
+  justify-content: flex-end;
+}
+
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.ga { background-image: url(/images/jornadas/lang/gallego.png); }
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.ct { background-image: url(/images/jornadas/lang/catalan.png); }
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.pv { background-image: url(/images/jornadas/lang/euskera.png); }
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.language.vc { background-image: url(/images/jornadas/lang/valenciano.png); }
+
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.adult {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: url(/images/jornadas/age-limit-white.png) no-repeat center/contain;
+}
+
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.rookies {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: relative;
+  background-color: green;
+}
+
+div.container div#rpg-content div.rpg-games tbody#games-list div.game-entry div.rookies::after {
+  content: "L";
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.game-card {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.game-card div.game-info {
+  margin: 1rem;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+div.game-card div.game-info div.game-info-contents {
+  background-color: var(--body-background);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--border-color);
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2rem;
+  position: relative;
+}
+
+div.game-card div.game-info div.game-info-contents .field {
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 1rem;
+  color: var(--border-color);
+  padding-left: 1.5rem;
+}
+
+div.game-card div.game-info div.game-info-contents .field.date {
+  background-image: url(/images/jornadas/calendar.png);
+  font-weight: bold;
+}
+
+div.game-card div.game-info div.game-info-contents .field.master {
+  background-image: url(/images/jornadas/master.png);
+  font-weight: bold;
+}
+
+div.game-card div.game-info div.game-info-contents .field.franchise {
+  background-image: url(/images/jornadas/game.png);
+}
+
+div.game-card div.game-info div.game-info-contents .field.players {
+  background-image: url(/images/jornadas/players.png);
+}
+
+div.game-card div.game-info div.game-info-contents .field.webcam {
+  background-image: url(/images/jornadas/webcam.png);
+}
+
+div.game-card div.game-info div.game-info-contents div.additional {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+div.game-card div.game-info div.game-info-contents div.adult {
+  height: 2rem;
+  background: url(/images/jornadas/age-limit.png) no-repeat center/contain;
+}
+
+div.game-card div.game-info div.game-info-contents div.rookies {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: green;
+  position: relative;
+  color: white;
+}
+
+div.game-card div.game-info div.game-info-contents div.rookies::after {
+  content: "L";
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.game-card div.game-info div.game-info-contents div.language {
+  width: 2rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+div.game-card div.game-info div.game-info-contents div.language.ga { background-image: url(/images/jornadas/lang/gallego.png); }
+div.game-card div.game-info div.game-info-contents div.language.ct { background-image: url(/images/jornadas/lang/catalan.png); }
+div.game-card div.game-info div.game-info-contents div.language.pv { background-image: url(/images/jornadas/lang/euskera.png); }
+div.game-card div.game-info div.game-info-contents div.language.vc { background-image: url(/images/jornadas/lang/valenciano.png); }
+
+
+div.game-card div.game-info div.game-info-contents .field.bots {
+  background-image: url(/images/jornadas/bots.png);
+}
+
+div.game-card div.game-info div.game-info-contents .field.tools {
+  background-image: url(/images/jornadas/tools.png);
+}
+
+div.game-card div.game-text {
+  width: 60%;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  height: auto;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+div.game-card div.game-text hr {
+  width: 10%;
+  height: 1px;
+  border-top: 2px dotted var(--body-background);
+  margin: 0.5rem auto;
+}
+
+div.game-card div.game-text ul {
+  font-size: 0.8rem;
+  list-style: square outside;
+  margin-left: 1rem;
+}
+
+div.game-card div.game-text p {
+  padding-bottom: 0.5rem;
+}
+
+div.game-card div.game-text a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div.game-card div.game-text a::after {
+  content: "";
+  background-image: url(/images/link.png);
+  background-size: cover;
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  margin-left: 0.3rem;
+}
+
+div.container div#bookfair-content {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow-y: auto;
+  column-gap: 2rem;
+  padding-top: 3rem;
+}
+
+div.container div#bookfair-content div.bookshop-entry {
+  border-radius: 30px 10px;
+  background-color: var(--text-color);
+  background-repeat: no-repeat;
+  background-size: auto 2rem;
+  background-position: left 1rem center;
+  width: 20%;
+  padding: 1.5rem 1rem;
+  color: white;
+  text-align: right;
+  cursor: pointer;
+}
+
+img.bookshop-dialog-logo {
+  max-width: 30%;
+  max-height: 80%;
+}
+
+.bookshop-dialog-promo {
+  padding: 1rem;
+  list-style-position: inside;
+}
+
+.bookshop-dialog-promo p {
+  padding-top: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.bookshop-dialog-promo li {
+  padding-left: 1.3rem;
+  text-indent: -1.3rem;
+}
+
+a.bookshop-dialog-buy {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+a.bookshop-dialog-buy div.buy-button {
+  height: 100%;
+  width: 100%;
+  background: url(images/fvlg/buy.png) no-repeat center/contain;
+  cursor: pointer;
+}
+
+@media screen and (orientation: landscape) and (max-device-width: 1280px) {
+  button.option { font-size: 2.5rem; }
+}
+
+@media screen and (orientation: landscape) and (max-device-width: 1024px) {
+  html { font-size: 10px; }
+  button.option { width: 40%; }
+  div.content table.schedule td.event { border-radius: 20px 8px; }
+}
+
+@media screen and (orientation: landscape) and (max-device-width: 800px) {
+  html { font-size: 8px; }
+}
+
+@media screen and (orientation: portrait) {
+  @keyframes intro {
+    0%    { background: black url(images/logo_blanco.png) no-repeat center/50%; }
+    97%   { background: black url(images/logo_blanco.png) no-repeat center/50%; }
+    98%   { background: var(--body-background) url(images/logo_color.png) no-repeat center/50%; }
+    100%  { background: var(--body-background) url(images/logo_color.png) no-repeat center/50%; }
+  }
+}
