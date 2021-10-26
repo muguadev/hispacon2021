@@ -1,8 +1,9 @@
+import { RPG_ABOUT } from "../assets/static/jornadas/info.js";
 import Container from "./Container.js";
 import { loadExcelFile, loadHtml, paragraphs } from "./utils.js";
 
 const GAMES_FILENAME = 'data/jornadas.txt'
-const INFO_FILENAME = 'assets/static/jornadas/info.txt'
+// const INFO_FILENAME = 'assets/static/jornadas/info.txt'
 
 const LANGUAGES = {
   gallego: 'ga',
@@ -82,10 +83,9 @@ class RoleplayingGames {
 
     this.modal = modal
 
-    this.template = ""
-    loadHtml(INFO_FILENAME).then(markup => this.template = `
+    this.template = `
       <div id="rpg-content">
-        ${markup}
+        ${RPG_ABOUT}
         <div class="rpg-games">
           <h1 tabindex="0">Partidas</h1>
           <table>
@@ -133,7 +133,60 @@ class RoleplayingGames {
           <a href="https://www.exitocritico.es/" target="_blank"><img aria-label="Éxito Crítico" src="images/jornadas/sponsors/exitocritico.png"></a>
         </div>  
       </div>
-    `)
+    `
+
+    // this.template = ""
+    // loadHtml(INFO_FILENAME).then(markup => this.template = `
+    //   <div id="rpg-content">
+    //     ${markup}
+    //     <div class="rpg-games">
+    //       <h1 tabindex="0">Partidas</h1>
+    //       <table>
+    //         <colgroup>
+    //           <col class="rpg-col">
+    //           <col class="rpg-col">
+    //           <col class="rpg-col">
+    //         </colgroup>
+    //         <thead><tr>
+    //           <th>Viernes 19</th>
+    //           <th>Sábado 20</th>
+    //           <th>Domingo 21<th>
+    //         </tr></thead>
+    //       </table>
+    //       <div style="height: 100%; overflow-y: auto; scroll-behavior: smooth;">
+    //         <table style="width: 100%;">
+    //           <colgroup>
+    //             <col class="rpg-col">
+    //             <col class="rpg-col">
+    //             <col class="rpg-col">
+    //           </colgroup>
+    //           <tbody id="games-list">
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     </div>
+    //   </div> 
+    //   <div id="rpg-footer">
+    //     <div class="rpg-footer-panel">
+    //       <a href="https://crisiscreativarol.wordpress.com/" target="_blank"><img aria-label="Crisis Creativa Rol" src="images/jornadas/sponsors/crisiscreativa.jpg"></a>
+    //       <a href="https://naufragio.net/" target="_blank"><img aria-label="El naufragio" src="images/jornadas/sponsors/naufragio.png"></a>
+    //       <a href="https://www.exregnum.com/" target="_blank"><img aria-label="Ex Regnum" src="images/jornadas/sponsors/exregnum.png"></a>
+    //       <a href="https://grapasymapas.com/" target="_blank"><img aria-label="Grapas y mapas" src="images/jornadas/sponsors/grapasymapas.png"></a>
+    //       <a href="https://htpublishers.es/" target="_blank"><img aria-label="H T Publishers" src="images/jornadas/sponsors/ht.png"></a>
+    //       <a href="https://www.nosolorol.com/es/" target="_blank"><img aria-label="No solo rol" src="images/jornadas/sponsors/nosolorol.png"></a>
+    //       <a href="http://www.other-selves.com/" target="_blank"><img aria-label="Other selves" src="images/jornadas/sponsors/otherselves.png"></a>
+    //       <a href="https://seijo.my-online.store/" target="_blank"><img aria-label="Seijo" src="images/jornadas/sponsors/seijo.png"></a>
+    //       <a href="https://ikanart.onlineweb.shop/" target="_blank"><img aria-label="Ikan" src="images/jornadas/sponsors/ikan.png"></a>
+    //       <a href="https://shadowlands.es/" target="_blank"><img aria-label="Shadowlands Ediciones" src="images/jornadas/sponsors/shadowlands.png"></a>
+    //       <a href="https://sugaareditorial.com/" target="_blank"><img aria-label="Sugaar Editorial" src="images/jornadas/sponsors/sugaar.png"></a>
+    //       <a href="https://www.unleashedgames.es/" target="_blank"><img aria-label="Unleashed Games" src="images/jornadas/sponsors/unleashed.png"></a>
+    //       <a href="https://www.facebook.com/yotambiensoyunfriki/" target="_blank"><img aria-label="Yo también soy un friki" src="images/jornadas/sponsors/friki.png"></a>
+    //     </div>
+    //     <div class="rpg-footer-panel">
+    //       <a href="https://www.exitocritico.es/" target="_blank"><img aria-label="Éxito Crítico" src="images/jornadas/sponsors/exitocritico.png"></a>
+    //     </div>  
+    //   </div>
+    // `)
   }
 
   read = async () => {
