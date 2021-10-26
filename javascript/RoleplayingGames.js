@@ -2,7 +2,7 @@ import Container from "./Container.js";
 import { loadExcelFile, loadHtml, paragraphs } from "./utils.js";
 
 const GAMES_FILENAME = 'data/jornadas.txt'
-const INFO_FILENAME = '/assets/static/jornadas/info.html'
+const INFO_FILENAME = './assets/static/jornadas/info.html'
 
 const LANGUAGES = {
   gallego: 'ga',

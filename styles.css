@@ -146,7 +146,7 @@ div.mothership {
   width: 40%;
   aspect-ratio: 5.015 / 1;
   transform: translateX(-50%);
-  background: url(images/ST-33L.png) no-repeat center/contain;
+  background: url(./images/ST-33L.png) no-repeat center/contain;
   animation:
     super-transport-up var(--super-transport-up-duration) linear var(--super-transport-up-delay) 1 normal forwards,
     super-transport-out var(--super-transport-out-duration) ease-in var(--super-transport-out-delay) 1 normal forwards;
