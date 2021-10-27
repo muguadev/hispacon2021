@@ -194,7 +194,7 @@ class RoleplayingGames {
     if (longest === 0) {
       document.querySelector('div#games-info').innerHTML = `
         <div class="rpg-message">
-          Abierta recepción de propuestas de partida
+          La información sobre las partidas estará disponible AQUÍ a partir del 8 de noviembre
         </div>
       `
     } else {

@@ -888,7 +888,8 @@ div.container div#rpg-content li[role="link"] {
 }
 
 div.container div#rpg-content div.rpg-about h3 {
-  padding-top: 1rem;
+  padding-top: 1.25rem;
+  padding-bottom: 0.5rem;
 }
 
 div.container div#rpg-content div.rpg-about h3 img {
@@ -898,7 +899,7 @@ div.container div#rpg-content div.rpg-about h3 img {
 }
 
 div.container div#rpg-content div.rpg-about p:not(.bullet) {
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 
 div.container div#rpg-content div.rpg-about p.bullet {
@@ -917,14 +918,14 @@ div.container div#rpg-content div.rpg-games div.rpg-message {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   color: var(--text-color);
-  font-size: 6rem;
   text-align: center;
   font-weight: bold;
-  background: url(images/logo_jornadas.png) no-repeat top center/30%;
+  background: url(images/logo_jornadas.png) no-repeat center/60%;
   border: 5px solid var(--text-color);
   border-radius: 2rem;
+  padding-bottom: 10%;
 }
 
 div.container div#rpg-content div.rpg-games col.rpg-col {

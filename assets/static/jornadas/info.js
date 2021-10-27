@@ -155,6 +155,8 @@ export const RPG_ABOUT = `
           Si te queda alguna duda, puedes consultarnos en <a href="https://discord.gg/Wz2RuS8GAg" target="_blank">nuestro servidor de Discord</a> o escribirnos a <a href="mailto:jornadasportico@aetcft.com" target="_blank">jornadasportico@aetcft.com</a>.
         </p>
       </span>
-      <p id="privacidad" tabindex="0">[<a href="./assets/docs/jornadas/privacidad.pdf" target="_blank">Política de privacidad</a>]</p>
+      <span tabindex="0" id="privacidad">
+        <h3 tabindex="-1"><img aria-label="Volver al índice" src="images/jornadas/up.png"></span>Política de privacidad</h3>
+        <p tabindex="-1">Disponible <a href="./assets/docs/jornadas/privacidad.pdf" target="_blank">aquí</a>.</p>
     </div>
   </div>`
