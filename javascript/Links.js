@@ -1,12 +1,4 @@
 import { LINKS } from "../data/participacion.js"
-import { loadExcelFile } from "./utils.js"
-
-// const LINKS_FILENAME = 'data/participacion.txt'
-
-// export const getLinks = async () => {
-//   const [_header, ...rows] = await loadExcelFile(LINKS_FILENAME)
-//   return rows
-// }
 
 export const getLinks = () => {
   const [_header, ...rows] = LINKS.split('\n')

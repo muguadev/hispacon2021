@@ -1,7 +1,6 @@
+import { BOOKSHOPS } from "../data/feria.js";
 import Container from "./Container.js";
 import { loadExcelFile, loadHtml } from "./utils.js";
-
-const BOOKSHOPS_FILENAME = 'data/feria.txt'
 
 const TEMPLATE = (markup) => `
   <div id="bookfair-filters"></div>
@@ -35,7 +34,7 @@ class Bookshops {
   }
 
   read = async () => {
-    const rows = await loadExcelFile(BOOKSHOPS_FILENAME)
+    rows = BOOKSHOPS.split('\n').map(b => b.split('\t'))
     this.bookshops = rows.reduce((list, row, index) => {
       const [id, name, logo, link, promotional] = row
       if ((index === 0) || (id === "")) return list
