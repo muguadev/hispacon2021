@@ -96,7 +96,7 @@ class Schedule {
   get events () { return [ ...this._events['Ignotus'], ...this._events['Visiones'], ...this._events['Microsedes']] }
 
   read = async () => {
-    const rows = await loadExcelFile(SCHEDULE_FILENAME)
+    // const rows = await loadExcelFile(SCHEDULE_FILENAME)
     const rows = SCHEDULE.split('\r\n').map(row => row.split('\t'))
 
     this._events = rows.reduce((current, row, index) => {
