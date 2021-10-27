@@ -1,4 +1,3 @@
-import { BOOKSHOPS } from "../data/feria.js";
 import Container from "./Container.js";
 import { loadExcelFile, loadHtml } from "./utils.js";
 
@@ -34,7 +33,7 @@ class Bookshops {
   }
 
   read = async () => {
-    rows = BOOKSHOPS.split('\n').map(b => b.split('\t'))
+    const rows = BOOKSHOPS.split('\n').map(b => b.split('\t'))
     this.bookshops = rows.reduce((list, row, index) => {
       const [id, name, logo, link, promotional] = row
       if ((index === 0) || (id === "")) return list
