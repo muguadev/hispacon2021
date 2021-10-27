@@ -926,6 +926,7 @@ div.container div#rpg-content div.rpg-games div.rpg-message {
   border: 5px solid var(--text-color);
   border-radius: 2rem;
   padding-bottom: 10%;
+  font-size: 1.25rem;
 }
 
 div.container div#rpg-content div.rpg-games col.rpg-col {
