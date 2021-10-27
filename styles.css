@@ -912,6 +912,21 @@ div.container div#rpg-content div.rpg-about p.bullet::before {
   left: -0.8rem;
 }
 
+div.container div#rpg-content div.rpg-games div.rpg-message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  font-size: 6rem;
+  text-align: center;
+  font-weight: bold;
+  background: url(images/logo_jornadas.png) no-repeat top center/30%;
+  border: 5px solid var(--text-color);
+  border-radius: 2rem;
+}
+
 div.container div#rpg-content div.rpg-games col.rpg-col {
   width: calc(100% / 3);
 }
