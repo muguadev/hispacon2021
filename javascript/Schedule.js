@@ -1,9 +1,10 @@
+import { SCHEDULE } from "../data/programa.js";
 import Container from "./Container.js";
 import { htmlEncode, imgSource, loadExcelFile } from "./utils.js"
 
 const clearHtml = text => text.replace(/(<([^>]+)>)/gi, "");
 
-const SCHEDULE_FILENAME = 'data/programa.txt'
+// const SCHEDULE_FILENAME = 'data/programa.txt'
 
 const TEMPLATE = `
   <div style="height: 100%; display: flex; flex-direction: column;">
@@ -95,7 +96,8 @@ class Schedule {
   get events () { return [ ...this._events['Ignotus'], ...this._events['Visiones'], ...this._events['Microsedes']] }
 
   read = async () => {
-    const rows = await loadExcelFile(SCHEDULE_FILENAME)
+    // const rows = await loadExcelFile(SCHEDULE_FILENAME)
+    const rows = SCHEDULE
 
     this._events = rows.reduce((current, row, index) => {
       const [ code, room, date, duration, kind, channel, title, link ] = row
