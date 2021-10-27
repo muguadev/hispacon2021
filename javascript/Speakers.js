@@ -74,7 +74,7 @@ const Speaker = ({ code, name, surname, nickname, image, bio, events, social }) 
 const setupCard = async ({name, surname, nickname, image, bio}) => {
   const fullName = `${name} ${surname}${!!nickname ? `&laquo;${nickname}&raquo;` : ''}`
 
-  const rawText = await loadText(`/data/bios/${bio}`)
+  const rawText = await loadText(`data/bios/${bio}`)
   const text = rawText.replaceAll('\r', '').split('\n').reduce((markup, paragraph) => {
     if (paragraph === "") return markup
     return `${markup}<p>${paragraph}</p>`
