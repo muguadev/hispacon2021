@@ -1,7 +1,8 @@
+import { SPEAKERS } from "../data/ponentes.js"
 import Container from "./Container.js"
 import { htmlEncode, imgSource, loadExcelFile, loadText } from "./utils.js"
 
-const SPEAKERS_FILENAME = 'data/ponentes.txt'
+// const SPEAKERS_FILENAME = 'data/ponentes.txt'
 const SOCIAL_FILENAME = 'data/social.txt'
 
 const TEMPLATE = `
@@ -99,7 +100,7 @@ class Speakers {
   get roster () { return this.speakers }
 
   read = async () => {
-    const rows = await loadExcelFile(SPEAKERS_FILENAME)
+    const rows = SPEAKERS.split('\n').map(s => s.split('\t'))
     const platforms = await loadExcelFile(SOCIAL_FILENAME)
 
     const social = platforms.reduce((presence, row, index) => {
