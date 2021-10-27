@@ -1,5 +1,6 @@
+import { BOOKSHOPS } from "../data/feria.js";
 import Container from "./Container.js";
-import { loadExcelFile, loadHtml } from "./utils.js";
+import { loadHtml } from "./utils.js";
 
 const TEMPLATE = (markup) => `
   <div id="bookfair-filters"></div>
@@ -9,7 +10,7 @@ const TEMPLATE = (markup) => `
 `
 
 const setupCard = async ({ name, logo, link, promotional }) => {
-  const markup = await loadHtml(`/data/fvlg/${promotional}`)
+  const markup = await loadHtml(`data/fvlg/${promotional}`)
   return {
     title: name,
     content: `
