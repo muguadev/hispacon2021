@@ -1,10 +1,8 @@
 import { BOOKSHOPS } from "../data/feria.js";
 import Container from "./Container.js";
-import { WIP } from "./status.js";
 import { loadHtml } from "./utils.js";
 
 const TEMPLATE = (markup) => `
-  ${!!WIP ? '<div class="wip"></div><div class="peekaboo left"></div><div class="peekaboo right"></div><div class="peekaboo fighter"></div>' : ''}
   <div id="bookfair-filters"></div>
   <div id="bookfair-content">
     ${markup}
@@ -47,7 +45,7 @@ class Bookshops {
 
   render = () => {
     const markup = (!this.bookshops ? '' : (
-      this.bookshops.reduce((html, shop) => {
+      this.bookshops.sort((a, b) => a.name.localeCompare(b.name) ).reduce((html, shop) => {
         return `${html}${BookshopEntry(shop)}`
       }, '')
     ))

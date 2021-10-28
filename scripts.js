@@ -82,7 +82,10 @@ const show = id => {
 
 const landingPage = async () => {
   document.querySelectorAll('button.option').forEach(o => {
-    if (!!WIP && (o.id !== "roleplaying")) o.classList.add("wip")
+    if (!!WIP && (o.id !== "roleplaying")) {
+      o.disabled = true
+      o.classList.add("wip")
+    }
     o.addEventListener('click', selectOption)
   })
 }

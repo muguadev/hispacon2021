@@ -1,21 +1,22 @@
-export const BOOKSHOPS = `ID	NOMBRE	LOGO	LINK	VENTAJAS
-L001	Aloha Editorial	aloha.png	https://www.alohaeditorial.com/	aloha.html
-L002	Arima Editorial	arima.png	https://arimaeditorial.com/	arima.html
-L003	Aristas Martínez	aristas.png	https://www.aristasmartinez.com/	
-L004	Editorial Cerbero	cerbero.png	https://www.editorialcerbero.com/	
-L005	Editorial Con Pluma y Píxel	pluma.jpg	https://conplumaypixel.com/	pluma.html
-L006	Editorial Crononauta	crononauta.png	https://www.crononauta.es/	crononauta.html
-L007	Ediciones Dorna	dorna.png	https://edicionesdorna.com/	
-L008	Duermevela Ediciones	duermevela.png	https://www.duermevelaediciones.es/	
-L009	Dilatando Mentes Editorial	dmentes.png	https://dilatandomenteseditorial.com/	
-L010	La biblioteca de Carfax	carfax.png	https://labibliotecadecarfax.com/	carfax.html
-L011	La máquina que hace PING!	ping.png	https://lamaquinaquehaceping.com/	
-L012	Insomnia Ediciones	insomnia.png	https://www.insomniaediciones.com/	insomnia.html
-L013	Editorial Niña Loba	loba.png	https://www.ninalobaeditorial.es/	loba.html
-L014	Editorial Pez de plata	pezplata.gif	https://editorialpezdeplata.com/	pezplata.html
-L015	Editorial Premium	premium.png	https://editorialpremium.es/	
-L016	Roomie Ediciones	roomie.png	https://roomieediciones.com/	
-L017	Literup Ediciones	literup.png	https://www.literup.com/	literup.html
-L018	Mai Més	maimes.png	https://www.maimes.cat/	
-L019	Obscura Editorial	obscura.png	https://www.obscura.es/	obscura.html
-L020	Raig Verd/Rayo Verde	raigvert.jpg	http://www.rayoverde.es/	`
+export const BOOKSHOPS = `ID\tNOMBRE	LOGO	LINK	VENTAJAS
+L001\tAloha Editorial\taloha.png\thttps://www.alohaeditorial.com/\taloha.html
+L002\tArima Editorial\tarima.png\thttps://arimaeditorial.com/\tarima.html
+L003\tAristas Martínez\taristas.png\thttps://www.aristasmartinez.com/\t
+L004\tEditorial Cerbero\tcerbero.png\thttps://www.editorialcerbero.com/\t
+L005\tEditorial Con Pluma y Píxel\tpluma.jpg\thttps://conplumaypixel.com/\tpluma.html
+L006\tEditorial Crononauta\tcrononauta.png\thttps://www.crononauta.es/\tcrononauta.html
+L007\tEdiciones Dorna\tdorna.png\thttps://edicionesdorna.com/\t
+L008\tDuermevela Ediciones\tduermevela.png\thttps://www.duermevelaediciones.es/\t
+L009\tDilatando Mentes Editorial\tdmentes.png\thttps://dilatandomenteseditorial.com/\t
+L010\tLa biblioteca de Carfax\tcarfax.png\thttps://labibliotecadecarfax.com/\tcarfax.html
+L011\tLa máquina que hace PING!\tping.png\thttps://lamaquinaquehaceping.com/\t
+L012\tInsomnia Ediciones\tinsomnia.png\thttps://www.insomniaediciones.com/\tinsomnia.html
+L013\tEditorial Niña Loba\tloba.png\thttps://www.ninalobaeditorial.es/\tloba.html
+L014\tEditorial Pez de plata\tpezplata.gif\thttps://editorialpezdeplata.com/\tpezplata.html
+L015\tEditorial Premium\tpremium.png\thttps://editorialpremium.es/\t
+L016\tRoomie Ediciones\troomie.png\thttps://roomieediciones.com/\t
+L017\tLiterup Ediciones\tliterup.png\thttps://www.literup.com/\tliterup.html
+L018\tMai Més\tmaimes.png\thttps://www.maimes.cat/\t
+L019\tObscura Editorial\tobscura.png\thttps://www.obscura.es/\tobscura.html
+L020\tRaig Verd/Rayo Verde\traigvert.jpg\thttp://www.rayoverde.es/\t
+L021\tEdicions SECC\tsecc.png\thttps://edicionssecc.blogspot.com/\t`

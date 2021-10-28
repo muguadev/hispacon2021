@@ -7,7 +7,6 @@ import { htmlEncode, imgSource, loadExcelFile, loadText } from "./utils.js"
 const SOCIAL_FILENAME = 'data/social.txt'
 
 const TEMPLATE = `
-  ${!!WIP ? '<div class="wip"></div><div class="peekaboo left"></div><div class="peekaboo right"></div><div class="peekaboo fighter"></div>' : ''}
   <div id="speakers-content" style="height: 100%; display: flex; flex-direction: column;">
     <div id="speakers_search">
       <input id="search_box" type="search" aria-label="Buscar ponentes">

@@ -8,7 +8,6 @@ const clearHtml = text => text.replace(/(<([^>]+)>)/gi, "");
 // const SCHEDULE_FILENAME = 'data/programa.txt'
 
 const TEMPLATE = `
-${!!WIP ? '<div class="wip"></div><div class="peekaboo left"></div><div class="peekaboo right"></div><div class="peekaboo fighter"></div>' : ''}
   <div style="height: 100%; display: flex; flex-direction: column;">
     <table class="schedule" style="flex-shrink: 0;">
       <colgroup>
