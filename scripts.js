@@ -4,6 +4,7 @@ import Modal from "./javascript/Modal.js"
 import RoleplayingGames from "./javascript/RoleplayingGames.js"
 import Schedule from "./javascript/Schedule.js"
 import Speakers from "./javascript/Speakers.js"
+import { WIP } from "./javascript/status.js"
 
 const content = document.querySelector("div.content")
 
@@ -80,7 +81,10 @@ const show = id => {
 }
 
 const landingPage = async () => {
-  document.querySelectorAll('button.option').forEach(o => o.addEventListener('click', selectOption))
+  document.querySelectorAll('button.option').forEach(o => {
+    if (!!WIP && (o.id !== "roleplaying")) o.classList.add("wip")
+    o.addEventListener('click', selectOption)
+  })
 }
 
 window.onload = landingPage;

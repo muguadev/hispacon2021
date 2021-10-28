@@ -266,6 +266,10 @@ button.option {
   transition: left 1s ease-in;
 }
 
+button.option.wip {
+  background: transparent url(images/wipicon.png) no-repeat center left 1rem/8%;
+}
+
 div.sponsors.hidden,
 button.option.hidden {
   left: -50%;
