@@ -388,6 +388,72 @@ div.content.visible {
   z-index: 1000;
 }
 
+div.content div.wip {
+  height: 50%;
+  background: url(images/wip.jpg) no-repeat center/cover;
+  position: absolute;
+  width: 100%;
+  z-index: 3000;
+  transform: translate(-50%, -50%) rotateZ(8deg);
+  top: 50%;
+  left: 50%;
+}
+
+div.content div.peekaboo {
+  width: 20%;
+  aspect-ratio: 1;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2999;
+}
+
+@keyframes peekaboo-left {
+    0%  { top: 50%; left: 50%; }
+   10%  { top: 50%; left: 50%; }
+   15%  { top: 10%; left: 20%; }
+   20%  { top: 50%; left: 50%; }
+  100%  { top: 50%; left: 50%; }
+}
+
+div.content div.peekaboo.left {
+  background-image: url(images/virus_left.png);
+  animation: peekaboo-left 10s ease 0s infinite normal none;
+}
+
+@keyframes peekaboo-right {
+  0%  { top: 50%; left: 50%; }
+ 10%  { top: 50%; left: 50%; }
+ 15%  { top: 30%; left: 80%; }
+ 20%  { top: 50%; left: 50%; }
+100%  { top: 50%; left: 50%; }
+}
+
+div.content div.peekaboo.right {
+  background-image: url(images/virus_right.png);
+  animation: peekaboo-right 7s ease 3s infinite normal none;
+}
+
+@keyframes peekaboo-fighter {
+    0%  { top: 100%; }
+   10%  { top: 100%; }
+   15%  { top: 80%; }
+   20%  { top: 100%; } 
+  100%  { top: 100%; }
+}
+
+div.content div.peekaboo.fighter {
+  top: 100%;
+  transform: translateX(-50%);
+  background-image: url(images/fighter.png);
+  animation: peekaboo-fighter 8.5s ease 1.5s infinite normal none;
+  z-index: 3001;
+}
+
 /**
   Botón de "home"
 **/

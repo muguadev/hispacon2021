@@ -22,6 +22,7 @@ const selectOption = ({target}) => {
 const goHome = () => {
   show()
   document.querySelector('div.container').classList.remove('with-selection')
+  document.querySelector('div.container div.content').innerHTML = ""
   document.querySelector('div.sponsors').classList.remove('hidden')
   document.querySelectorAll('button.option').forEach(h => {
     h.classList.remove('hidden')
